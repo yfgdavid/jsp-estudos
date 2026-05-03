@@ -11,7 +11,7 @@
 </header>
 <nav>
     <a href="croches.html" target="home">Cadastro de produtos</a>
-    <a href="listarcroches.html" target="home">Listagem de produtos</a>
+    <a href="listarcroches.jsp" target="home">Listagem de produtos</a>
     <a href="deletarcroches.html" target="home">Excluir produtos</a>
     <a href="editarcroches.html" target="home">Editar produtos</a>
 
