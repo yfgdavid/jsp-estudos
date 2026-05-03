@@ -31,13 +31,13 @@
    int resultado = statement.executeUpdate();
 
    if (resultado == 0) {
-       System.out.println("o produto nao foi encontrado");
+       out.print("o produto nao foi encontrado");
    } else {
-       System.out.println("o produto de codigo: " + codigo + " foi excluido com sucesso");
+       out.print("o produto de codigo: " + codigo + " foi excluido com sucesso");
    }
 
     } catch (Exception x) {
-        System.out.print("Erro: " + x.getMessage());
+        out.print("Erro: " + x.getMessage());
     }
 
 

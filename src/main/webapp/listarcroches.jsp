@@ -33,7 +33,9 @@
             <th>Codigo</th>
             <th>Tipo</th>
             <th>Nome</th>
-            <th>Preço</th><th>Exclusão</th>
+            <th>Preço</th>
+              <th>Exclusão</th>
+              <th>Editar</th>
           </tr>
 
             <%
@@ -46,6 +48,9 @@
             <td><%= resultado.getString("nome")%></td>
             <td><%= resultado.getString("preco")%></td>
             <td><a href="deletarcroches.jsp?codigo=<%= resultado.getString("codigo")%>">Excluir</a></td>
+              <td><a href="editarcroches.jsp?codigo=<%= resultado.getString("codigo")%>">Editar</a></td>
+
+
           </tr>
 
    <%
