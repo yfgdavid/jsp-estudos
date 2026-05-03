@@ -14,6 +14,7 @@
     <a href="listarcroches.jsp" target="home">Listagem de produtos</a>
     <a href="deletarcroches.html" target="home">Excluir produtos</a>
     <a href="editarcroches.html" target="home">Editar produtos</a>
+    <a href="consultarcroches.html" target="home">consultar produtos</a>
 
 </nav>
 <main>

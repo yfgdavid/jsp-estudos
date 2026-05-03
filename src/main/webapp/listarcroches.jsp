@@ -11,7 +11,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Listagem de produtos</title>
+    <link href="tabela.css" rel="stylesheet">
 </head>
 <body>
 <%
@@ -24,15 +25,15 @@
     Class.forName("com.mysql.cj.jdbc.Driver");
     conecta = DriverManager.getConnection("jdbc:mysql://localhost:3306/croches", "root", "");
 
-    statement = conecta.prepareStatement("SELECT * FROM produto");
+    statement = conecta.prepareStatement("SELECT * FROM produto ORDER BY codigo");
     ResultSet resultado = statement.executeQuery();
    %>
-        <table border = "1">
+        <table>
           <tr>
             <th>Codigo</th>
             <th>Tipo</th>
             <th>Nome</th>
-            <th>Preço</th>
+            <th>Preço</th><th>Exclusão</th>
           </tr>
 
             <%
@@ -44,7 +45,7 @@
             <td><%= resultado.getString("tipo")%></td>
             <td><%= resultado.getString("nome")%></td>
             <td><%= resultado.getString("preco")%></td>
-
+            <td><a href="deletarcroches.jsp?codigo=<%= resultado.getString("codigo")%>">Excluir</a></td>
           </tr>
 
    <%
