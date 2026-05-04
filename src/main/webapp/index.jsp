@@ -11,14 +11,14 @@
 </header>
 <nav>
     <a href="croches.html" target="home">Cadastro de produtos</a>
-    <a href="listarcroches.jsp" target="home">Listagem de produtos</a>
+    <a href="produto?acao=listar" target="home">Listagem de produtos</a>
     <a href="deletarcroches.html" target="home">Excluir produtos</a>
     <a href="editarcroches.html" target="home">Editar produtos</a>
     <a href="consultarcroches.html" target="home">Consultar produtos</a>
 
 </nav>
 <main>
-    <iframe src="apresentacao.html" name="home"></iframe>
+
 </main>
 <footer>
 Desenvolvido por: David Victor em 02/05/2026

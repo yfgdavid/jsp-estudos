@@ -1,13 +1,5 @@
-<%@ page import="java.sql.Connection" %>
-<%@ page import="java.sql.PreparedStatement" %>
-<%@ page import="java.sql.DriverManager" %>
-<%@ page import="java.sql.ResultSet" %><%--
-  Created by IntelliJ IDEA.
-  User: yfgda
-  Date: 03/05/2026
-  Time: 09:38
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.util.List" %>
+<%@ page import="model.Produto" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -16,53 +8,27 @@
 </head>
 <body>
 <%
-  try {
-
-
-
-    Connection conecta;
-    PreparedStatement statement;
-    Class.forName("com.mysql.cj.jdbc.Driver");
-    conecta = DriverManager.getConnection("jdbc:mysql://localhost:3306/croches", "root", "");
-
-    statement = conecta.prepareStatement("SELECT * FROM produto ORDER BY codigo");
-    ResultSet resultado = statement.executeQuery();
-   %>
-        <table>
-          <tr>
-            <th>Codigo</th>
-            <th>Tipo</th>
-            <th>Nome</th>
-            <th>Preço</th>
-              <th>Exclusão</th>
-              <th>Editar</th>
-          </tr>
-
-            <%
-    while (resultado.next()){
-            %>
-
-          <tr>
-            <td><%= resultado.getString("codigo")%></td>
-            <td><%= resultado.getString("tipo")%></td>
-            <td><%= resultado.getString("nome")%></td>
-            <td><%= resultado.getString("preco")%></td>
-            <td><a href="deletarcroches.jsp?codigo=<%= resultado.getString("codigo")%>">Excluir</a></td>
-              <td><a href="editarcroches.jsp?codigo=<%= resultado.getString("codigo")%>">Editar</a></td>
-
-
-          </tr>
-
-   <%
-     }
-   %>
-        </table>
-<%
-
-
-  } catch (Exception x) {
-    System.out.print("Erro: " + x.getMessage());
-  }
+    List<Produto> produtos = (List<Produto>) request.getAttribute("produtos");
 %>
+<table>
+    <tr>
+        <th>Codigo</th>
+        <th>Tipo</th>
+        <th>Nome</th>
+        <th>Preço</th>
+        <th>Exclusão</th>
+        <th>Editar</th>
+    </tr>
+    <% for (Produto produto : produtos) { %>
+    <tr>
+        <td><%= produto.getCodigo() %></td>
+        <td><%= produto.getTipo() %></td>
+        <td><%= produto.getNome() %></td>
+        <td><%= produto.getPreco() %></td>
+        <td><a href="produto?acao=deletar&codigo=<%= produto.getCodigo() %>">Excluir</a></td>
+        <td><a href="produto?acao=editar&codigo=<%= produto.getCodigo() %>">Editar</a></td>
+    </tr>
+    <% } %>
+</table>
 </body>
 </html>

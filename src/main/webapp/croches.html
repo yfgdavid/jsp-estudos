@@ -5,7 +5,8 @@
     <title>Cadastro de produtos</title>
 </head>
 <body>
-    <form method="post" action="salvar_produto.jsp">
+    <form method="post" action="produto">
+        <input type="hidden" name="acao" value="inserir">
         <p>
             <label for="codigo">Código: </label>
             <input type="number" name="codigo" id="codigo" size="50">

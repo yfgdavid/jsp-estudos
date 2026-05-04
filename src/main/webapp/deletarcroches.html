@@ -2,14 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Deletar Produtos</title>
 </head>
 <body>
-<form method="get" action = "deletarcroches.jsp">
-    <label for="codigo">Codigo da exclusao: </label>
-    <input id="codigo" type="number" name="codigo" placeholder="insira o codigo do produto" required>
+<form method="get" action = "produto">
+    <input type="hidden" name="acao" value="deletar">
+    <label>Codigo da exclusao: </label>
+    <input type="text" name="codigo" placeholder="Insira o código do produto" required>
     <input type="submit" value="Excluir">
+
 
 </form>
 </body>
 </html>
+

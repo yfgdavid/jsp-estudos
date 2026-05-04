@@ -54,7 +54,16 @@ public class ProdutoServlet extends HttpServlet {
                 throw new ServletException(e);
             }
 
+        }  else if (acao.equals("editar")) {
+        try {
+            int codigo = Integer.parseInt(request.getParameter("codigo"));
+            Produto produto = dao.buscar(codigo);
+            request.setAttribute("produto", produto);
+            request.getRequestDispatcher("/editarcroches.jsp").forward(request, response);
+        } catch (Exception e) {
+            throw new ServletException(e);
         }
+    }
     }
 
     @Override
