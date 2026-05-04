@@ -14,7 +14,7 @@
 </head>
 <body>
 <%
-
+// definindo variaveis que vao ser responsaveis pelos dados do banco de dados
   int codigo;
   String nome;
   String tipo;
@@ -28,12 +28,12 @@
   try {
 
 
-
+   // fazendo conexao com o banco de dados
     Connection conecta;
     PreparedStatement statement;
     Class.forName("com.mysql.cj.jdbc.Driver");
     conecta = DriverManager.getConnection("jdbc:mysql://localhost:3306/croches", "root", "");
-
+    //executando comando sql
     statement = conecta.prepareStatement("UPDATE  produto SET tipo = ?, nome = ?, preco = ? WHERE codigo = ?");
     statement.setString(1, tipo);
     statement.setString(2, nome);
