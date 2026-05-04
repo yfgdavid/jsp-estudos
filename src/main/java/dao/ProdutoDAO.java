@@ -67,6 +67,35 @@ public class ProdutoDAO {
         }
         conecta.close();
         return produto;
+
+
+    }
+    public void deletar(int codigo) throws Exception {
+        Connection conecta = getConexao();
+        PreparedStatement statement = conecta.prepareStatement("DELETE FROM produto WHERE codigo=?");
+        statement.setInt(1, codigo);
+        int resultado = statement.executeUpdate();
+
+        if (resultado == 0){
+            System.out.println("produto nao existente");
+        }
+
+
+        conecta.close();
+
     }
 
-}
+    public void atualizar(Produto produto) throws Exception {
+        Connection conecta = getConexao();
+        PreparedStatement statement = conecta.prepareStatement("UPDATE  produto SET tipo = ?, nome = ?, preco = ? WHERE codigo = ?");
+
+
+        statement.setString(1, produto.getTipo());
+        statement.setString(2, produto.getNome());
+        statement.setDouble(3, produto.getPreco());
+        statement.setInt(4, produto.getCodigo());
+        statement.executeUpdate();
+        conecta.close();
+
+    }
+    }
